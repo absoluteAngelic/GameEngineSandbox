@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
+    int money;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -65,5 +67,11 @@ public class PlayerController : MonoBehaviour
     {
         loseScreen.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void GiveMoney(int x)
+    {
+        money += x;
+        Debug.Log($"Total Player Money: {money}");
     }
 }
