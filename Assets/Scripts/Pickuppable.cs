@@ -1,6 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Pickuppable : MonoBehaviour
+public abstract class Pickuppable : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
@@ -13,4 +14,6 @@ public class Pickuppable : MonoBehaviour
     virtual protected void PickedUp()
     {
     }
+
+    public abstract void Spawn(Vector3 spawnPosition);
 }

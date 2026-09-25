@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     Rigidbody _rb;
     public GameObject winScreen;
@@ -44,26 +44,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("End"))
-        {
-            Win();
-        }
-
-        if (collision.gameObject.CompareTag("LosePlane"))
-        {
-            Lose();
-        }
-    }
-
-    void Win()
+    public void Win()
     {
         winScreen.SetActive(true);
         Time.timeScale = 0f;
     }
 
-    void Lose()
+    public void Lose()
     {
         loseScreen.SetActive(true);
         Time.timeScale = 0f;
@@ -73,5 +60,10 @@ public class PlayerController : MonoBehaviour
     {
         money += x;
         Debug.Log($"Total Player Money: {money}");
+    }
+
+    public int GetMoney()
+    {
+        return money;
     }
 }
