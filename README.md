@@ -29,5 +29,5 @@ Created a super short and basic platformer in approximately an hour to demonstra
 ***
 
 **Week 3 Checklist:**<br>
--Made Player a singleton and access it from the Lose Plane and Win Cube to trigger win/loss. Also accessed by coins to give the player money, and for the Win Cube to check the player's money.
+-Made Player a singleton and access it from the Lose Plane and Win Cube to trigger win/loss. Also accessed by coins to give the player money, and for the Win Cube to check the player's money.<br>
 -Instead of having prefabs put directly into the map, coins and powerups are spawned by a SpawnPoint factory that triggers the Spawn methods defined within children of Pickuppable
