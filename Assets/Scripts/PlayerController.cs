@@ -5,12 +5,14 @@ public class PlayerController : Singleton<PlayerController>
     Rigidbody _rb;
     public GameObject winScreen;
     public GameObject loseScreen;
+    bool touchingPlatform;
 
     int money;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _rb.maxLinearVelocity = 20;
 
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
@@ -18,6 +20,8 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
+        //Debug.Log(_rb.linearVelocity.magnitude);
+
         if (Input.GetKey(KeyCode.W))
         {
             _rb.AddForce(new Vector3(-2, 0, 0));
@@ -40,7 +44,10 @@ public class PlayerController : Singleton<PlayerController>
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
+            if (touchingPlatform)
+            {
+                _rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
+            }
         }
     }
 
@@ -62,8 +69,31 @@ public class PlayerController : Singleton<PlayerController>
         Debug.Log($"Total Player Money: {money}");
     }
 
+    public void TakeMoney(int x)
+    {
+        money -= x;
+        Debug.Log($"Player Paid: {x}");
+        Debug.Log($"Total Player Money: {money}");
+    }
+
     public int GetMoney()
     {
         return money;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            touchingPlatform = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            touchingPlatform = false;
+        }
     }
 }

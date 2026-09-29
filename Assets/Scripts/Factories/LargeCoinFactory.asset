@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbfe48c0193cc84eaad6cb785c449b4, type: 3}
+  m_Name: LargeCoinFactory
+  m_EditorClassIdentifier: Assembly-CSharp::CoinFactory
+  coin: {fileID: 7021409216753988139, guid: ed284e646555fe943afefca53e776c45, type: 3}
+  amount: 4
+  spaceBetween: 0.7

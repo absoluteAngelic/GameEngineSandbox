@@ -11,9 +11,5 @@ public abstract class Pickuppable : MonoBehaviour
         }
     }
 
-    virtual protected void PickedUp()
-    {
-    }
-
-    public abstract void Spawn(Vector3 spawnPosition);
+    protected abstract void PickedUp();
 }

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    public Pickuppable itemToSpawn;
+    public PickuppableFactory factoryToCall;
 
     private void Start()
     {
-        itemToSpawn.Spawn(gameObject.transform.position);
+        factoryToCall.Spawn(this.gameObject);
     }
 }

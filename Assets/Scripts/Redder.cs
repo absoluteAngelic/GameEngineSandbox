@@ -18,9 +18,4 @@ public class Redder : Pickuppable
         floor.GetComponent<MeshRenderer>().material = redMaterial;
         GameObject.Destroy(this.gameObject);
     }
-
-    public override void Spawn(Vector3 spawnPosition)
-    {
-        GameObject spawnedObj = Instantiate(this.gameObject, spawnPosition, this.transform.rotation);
-    }
 }

@@ -6,10 +6,7 @@ public class WinCube : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (PlayerController.Instance.GetMoney() >= 10)
-            {
-                PlayerController.Instance.Win();
-            }
+            PlayerController.Instance.Win();
         }
     }
 }

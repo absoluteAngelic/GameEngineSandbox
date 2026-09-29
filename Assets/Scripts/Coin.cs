@@ -6,13 +6,7 @@ public class Coin : Pickuppable
 
     override protected void PickedUp()
     {
-        Debug.Log("Coin Picked Up");
         PlayerController.Instance.GetComponent<PlayerController>().GiveMoney(value);
         GameObject.Destroy(this.gameObject);
-    }
-
-    public override void Spawn(Vector3 spawnPosition)
-    {
-        GameObject spawnedObj = Instantiate(this.gameObject,spawnPosition, this.transform.rotation);
     }
 }
