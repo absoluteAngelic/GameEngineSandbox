@@ -31,3 +31,13 @@ Created a super short and basic platformer in approximately an hour to demonstra
 **Week 3 Checklist:**<br>
 -Made Player a singleton and access it from the Lose Plane and Win Cube to trigger win/loss. Also accessed by coins to give the player money, and for the Win Cube to check the player's money.<br>
 -Instead of having prefabs put directly into the map, coins and powerups are spawned by a SpawnPoint factory that triggers the Spawn methods defined within children of Pickuppable
+***
+
+**Week 4 Tutorial**<br>
+Name: Luke Boctor<br>
+Student#: 100927793<br>
+Potential Game Title: Cubest<br>
+Description of Gameplay Loop: In this game, you play as a cube trying to get to a platform with lots of danger (and coins) in between. You collect all the coins and try to reach the final platform while controlling an extremely momentum-heavy player, and trying to avoid falling off, where the cube would sadly never be seen again.<br>
+Use of Factory Pattern: Factories are used to spawn coins, and the red and blue spheres called redders and bluers. In the Unity editor, all you have to do to make a new type of sphere the player can pick up is: make a prefab for the new look of the sphere, make a new script that inherits from Pickuppable and attach it to your prefab, in the script override the PickedUp method, make a PowerupFactory ScriptableObject from the right click menu, slot the prefab you made into the inspector, put a SpawnPoint script on an empty game object in the place you'd like it to spawn, slot your factory into the inspector, and you're done. You define code that runs when the player picks it up inside of the PickedUp method in your script. You can swap factories on spawn points very easily, with a single drag and drop. This allows extremely easy swapping of items at spawn points, and prevents there from being 10 separate prefabs for each type of spawn (e.g. CoinSpawn, PowerupSpawn, etc). There's just one spawn point, and you drag factories onto it. <br>
+<br>
+Again, the point of using factories like this is to only need one type of spawn point script, very easy swapping of what spawns in what bunches of spawn points, and to have very fine control of how each type of item spawns. We could very quickly whip up a new type of item that, say, could change gravity. We make a prefab, make one script, we make a factory and could make others later with different values for the gravity strength, then just plop it into the spawn point.
